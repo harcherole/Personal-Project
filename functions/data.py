@@ -5,7 +5,7 @@ import pandas as pd
 FREMONT_URL = 'https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD'
 
 def get_fremont_data(filname='Fremont.csv', url=FREMONT_URL, force_download=False):
-	"""Download and cache the fremont data
+    """Download and cache the fremont data
 
 	Parameters
 	----------
@@ -20,8 +20,7 @@ def get_fremont_data(filname='Fremont.csv', url=FREMONT_URL, force_download=Fals
 	-------
 	data : pandas.DataFrame
 		The fremont bridge data
-	"""
-	
+	"""    
     if force_download or not os.path.exists(filname):
         urlretrieve(url, filename)
     data = pd.read_csv('Fremont.csv', index_col='Date', parse_dates=True)
